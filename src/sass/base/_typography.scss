@@ -70,8 +70,10 @@ li,
 dd,
 dt,
 button,
+fieldset,
 summary,
-figcaption {
+figcaption,
+address {
   max-inline-size: 45rem;
 }
 
