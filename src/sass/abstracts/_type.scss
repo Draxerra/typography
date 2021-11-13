@@ -1,0 +1,30 @@
+@use "sass:map";
+
+$small-type-multiplier: 1.125;
+$large-type-multiplier: 1.25;
+
+$type-scale: (
+  300: (
+    small: 0.8rem,
+    large: 0.8rem,
+  ),
+  400: (
+    small: 1rem,
+    large: 1rem,
+  ),
+);
+
+@for $i from 5 through 9 {
+  $prev: ($i - 1) * 100;
+  $num: $i * 100;
+
+  $type-scale: map.deep-merge(
+    $type-scale,
+    (
+      $num: (
+        small: map-get($type-scale, $prev, small) * $small-type-multiplier,
+        large: map-get($type-scale, $prev, large) * $large-type-multiplier,
+      ),
+    )
+  );
+}

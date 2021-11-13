@@ -1,0 +1,23 @@
+@forward "./sass/base";
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  gap: calc(var(--spacing) * 2);
+
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  padding-block: var(--spacing);
+  padding-inline: var(--spacing);
+}
+
+div {
+  display: grid;
+  justify-items: start;
+  gap: calc(var(--spacing) / 2);
+}

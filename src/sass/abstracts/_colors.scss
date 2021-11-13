@@ -1,0 +1,20 @@
+$primary-hue: 200;
+
+$colors: (
+  primary: (
+    light: (
+      "": hsl($primary-hue 50% 65%),
+      surface: hsl($primary-hue 10% 90%),
+      surface2: hsl($primary-hue 10% 80%),
+      text: hsl($primary-hue 50% 5%),
+      link: hsl($primary-hue 50% 20%),
+    ),
+    dark: (
+      "": hsl($primary-hue 25% 25%),
+      surface: hsl($primary-hue 10% 10%),
+      surface2: hsl($primary-hue 10% 20%),
+      text: hsl($primary-hue 20% 95%),
+      link: hsl($primary-hue 50% 80%),
+    ),
+  ),
+);

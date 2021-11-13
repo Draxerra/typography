@@ -1,0 +1,36 @@
+@use "/sass/abstracts" as abstracts;
+@use "/sass/functions" as functions;
+
+:root {
+  @each $size, $values in abstracts.$type-scale {
+    $small: map-get($values, small);
+    $large: map-get($values, large);
+    $mid: functions.midpoint($small, $large);
+
+    @if ($small != $large) {
+      --fs-#{$size}: clamp(#{$small}, #{$mid}, #{$large});
+    } @else {
+      --fs-#{$size}: #{$small};
+    }
+  }
+
+  @each $color, $shades in abstracts.$colors {
+    $light-shades: map-get($shades, light);
+    @each $shade, $value in $light-shades {
+      $shade: if($shade != "", -#{$shade}, $shade);
+      --clr-#{$color}#{$shade}: #{$value};
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @each $color, $shades in abstracts.$colors {
+      $dark-shades: map-get($shades, dark);
+      @each $shade, $value in $dark-shades {
+        $shade: if($shade != "", -#{$shade}, $shade);
+        --clr-#{$color}#{$shade}: #{$value};
+      }
+    }
+  }
+
+  --spacing: 2em;
+}
